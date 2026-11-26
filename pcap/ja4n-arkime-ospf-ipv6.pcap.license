@@ -1,0 +1,42 @@
+SPDX-FileCopyrightText: 2012 Aol Inc.
+SPDX-FileCopyrightText: The Arkime project contributors <https://github.com/arkime/arkime>
+SPDX-License-Identifier: Apache-2.0
+
+Provenance of pcap/ja4n-arkime-ospf-ipv6.pcap
+=============================================
+
+This file covers only pcap/ja4n-arkime-ospf-ipv6.pcap. The rest of this
+repository is licensed as described in LICENSE and LICENSE-JA4.
+
+Source:
+  Project:   Arkime, https://github.com/arkime/arkime
+  File:      tests/pcap/ospf.pcap
+             https://github.com/arkime/arkime/blob/main/tests/pcap/ospf.pcap
+  Git blob:  420727b79962df3ab345485bb83a98db6d116b87
+             (identical at arkime/arkime commits
+             689a0bec705e13294945d6276de440eb648c059d and
+             55988590b4462692af11e53a77830294e278c0be)
+  SHA-256:   1c3442fe1f3be3d9cccdbae64bc4db69b97944a0990a0c018433b21891e82278
+             (394 packets, pcap, Ethernet)
+  License:   Apache License 2.0, as stated in arkime/arkime LICENSE
+             (SHA-256 47bba5f4bdc57a4b7da733582fa9afe352922163280d4172dadc80281cb53494),
+             whose notice names Aol Inc. (2012) as the holder. The
+             capture carries no notice of its own. Full license text:
+             LICENSES/Apache-2.0.txt.
+
+Modifications (Apache License 2.0, section 4(b)):
+  Only frames 217 and 226 were kept: the two NTPv4 client requests from
+  2001:bef::a00:27ff:fe0d:5c3c:123 to 2001:418:8405:4002::3:123 and to
+  2001:67c:1560:8003::c8:123. The pcap file header and both records,
+  including timestamps, are byte-for-byte unchanged:
+
+    editcap -F pcap -r ospf.pcap ja4n-arkime-ospf-ipv6.pcap 217 226
+
+  Result: 276 bytes, SHA-256
+  eb27bbc5ba5acfb45ad3712bbed0bd68228708b7250f6427e0c773116d7b1317.
+
+Use:
+  zeek/testing/tests/ja4n-ospf-ipv6-arkime-golden.zeek, against the
+  "ntp.ja4n" values Arkime recorded for these sessions in arkime/ja4
+  pcap/ospf.test, commit 27099fb11f351f35d69f4ce366374aa91536af04
+  (SHA-256 d1f9862ec1af9efcefdd24dff3f99cc68da5608e4b6f862a06e62f2afcd0177a).
